@@ -12,12 +12,12 @@ TagManager:
   - Water
   - UI
   - 
+  - Mond
+  - Liyue
+  - Player
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Text
   - 
   - 
   - 
@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Mond
+    uniqueID: 3118226337
+    locked: 0
+  - name: Liyue
+    uniqueID: 4126851431
+    locked: 0
+  - name: Player
+    uniqueID: 3265073873
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
