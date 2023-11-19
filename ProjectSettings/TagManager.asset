@@ -12,12 +12,12 @@ TagManager:
   - Water
   - UI
   - 
-  - Mond
-  - Liyue
-  - Player
   - 
   - 
-  - Text
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3265073873
+    locked: 0
+  - name: Inazuma
+    uniqueID: 2165840339
     locked: 0
   - name: Default
     uniqueID: 0
