@@ -12,11 +12,10 @@ public class PlayerMove : MonoBehaviour
     public GameObject _camera;
     public GameObject[] _cameratargetPosition;
 
-    public Sprite _sadpaimon;
     public float speed = 2f;
     public bool isMoving = false;
 
-    public bool textmode = false;
+    public bool textmode = true;
 
     Animator player_anim;
     Animator pai_anim;
@@ -66,11 +65,19 @@ public class PlayerMove : MonoBehaviour
         player_anim.SetBool("Sad", true);
     }
 
-    public void PaimonSad()
+    public void PaimonSad(bool _flip)
     {
-        pai_sprite.sprite = _sadpaimon;
+        pai_anim.SetBool("Sad", true);
+        pai_sprite.flipX = _flip;
+        Debug.Log("½½ÇÂ ÆäÀÌ¸ó");
     }
+    
+    public void NotSad()
+    {
+        player_anim.SetBool("Sad", false);
+        pai_anim.SetBool("Sad", false);
 
+    }
     public void PaimonStar()
     {
 
