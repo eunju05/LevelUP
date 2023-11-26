@@ -44,11 +44,20 @@ TagManager:
   - name: Liyue
     uniqueID: 4126851431
     locked: 0
-  - name: Player
-    uniqueID: 3265073873
-    locked: 0
   - name: Inazuma
     uniqueID: 2165840339
+    locked: 0
+  - name: Sumeru
+    uniqueID: 3596470257
+    locked: 0
+  - name: Fontaine
+    uniqueID: 1433309697
+    locked: 0
+  - name: Final
+    uniqueID: 4201494715
+    locked: 0
+  - name: Player
+    uniqueID: 3265073873
     locked: 0
   - name: Default
     uniqueID: 0

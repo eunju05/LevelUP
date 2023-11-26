@@ -41,7 +41,7 @@ public class PlayerMove : MonoBehaviour
             _camera.transform.position = Vector3.MoveTowards(_camera.transform.position, _cameratargetPosition[i].transform.position, Time.deltaTime * speed);
             _player.transform.position = Vector3.MoveTowards(_player.transform.position, _playertargetPosition[i].transform.position, Time.deltaTime * speed);
 
-            if (_player.transform.position == _playertargetPosition[i].transform.position)
+            if (_player.transform.position == _playertargetPosition[i].transform.position && _camera.transform.position == _cameratargetPosition[i].transform.position)
             {
                 isMoving = false;
                 player_anim.SetBool("isWalking", false);
@@ -65,13 +65,46 @@ public class PlayerMove : MonoBehaviour
         player_anim.SetBool("Sad", true);
     }
 
-    public void PaimonSad(bool _flip)
+    public void PlayerTalk()
     {
-        pai_anim.SetBool("Sad", true);
-        pai_sprite.flipX = _flip;
+        player_anim.SetBool("isTalking", true);
+    }
+
+    public void PlayerNotTalk()
+    {
+        player_anim.SetBool("isTalking", false);
+    }
+
+    public void PlayerStudy()
+    {
+        player_anim.SetBool("isStudying", true);
+    }
+
+    public void PlayerNotStudy()
+    {
+        player_anim.SetBool("isStudying", false);
+    }
+    public void PaimonSad()
+    {
+        pai_anim.SetBool("Sad", true);        
         Debug.Log("½½ÇÂ ÆäÀÌ¸ó");
     }
     
+    public void PaimonFlip(bool _flip)
+    {
+        pai_sprite.flipX = _flip;
+    }
+
+    public void PaimonTalk()
+    {
+        pai_anim.SetBool("isTalking", true);
+    }
+
+    public void PaimonNotTalk()
+    {
+        pai_anim.SetBool("isTalking", false);
+    }
+
     public void NotSad()
     {
         player_anim.SetBool("Sad", false);

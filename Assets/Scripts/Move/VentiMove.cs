@@ -9,6 +9,7 @@ public class VentiMove : MonoBehaviour
 
     public float speed = 2f;
     public bool isMoving = false;
+    public bool textmode = true;
 
     Animator anim;
 
@@ -29,13 +30,25 @@ public class VentiMove : MonoBehaviour
             {
                 isMoving = false;
                 anim.SetBool("isWalking", false);
+                textmode = true;
             }
         }
     }
 
     public void VentiAppear()
     {
+        textmode = false;
         anim.SetBool("isWalking", true);
         isMoving = true;
+    }
+
+    public void VentiTalk()
+    {
+        anim.SetBool("isTalking", true);
+    }
+
+    public void VentiNotTalk()
+    {
+        anim.SetBool("isTalking", false);
     }
 }
