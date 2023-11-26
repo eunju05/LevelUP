@@ -39,6 +39,7 @@ public class MondManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cutUI.ok = true;
         playerMove.PlayerSad();
         playerMove.PaimonSad();
         MondUI.GetComponent<UIControl>().UIStage();

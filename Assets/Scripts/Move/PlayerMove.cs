@@ -84,6 +84,8 @@ public class PlayerMove : MonoBehaviour
     {
         player_anim.SetBool("isStudying", false);
     }
+
+    //∆‰¿Ã∏Û
     public void PaimonSad()
     {
         pai_anim.SetBool("Sad", true);        
@@ -113,6 +115,11 @@ public class PlayerMove : MonoBehaviour
     }
     public void PaimonStar()
     {
+        pai_anim.SetBool("Star", true);
+    }
 
+    public void PaimonNotStar()
+    {
+        pai_anim.SetBool("Star", false);
     }
 }

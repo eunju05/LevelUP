@@ -75,6 +75,11 @@ public class LiyueManager : MonoBehaviour
         //∆‰¿Ã∏Û
         else if (_ID == 1002)
         {
+            if(_action == "Star")
+            {
+                playerMove.PaimonStar();
+            }
+
             Lumine_TalkPanel.SetActive(false);
             Ningguang_TalkPanel.SetActive(false);
             Paimon_TalkPanel.SetActive(true);
@@ -140,6 +145,7 @@ public class LiyueManager : MonoBehaviour
 
     void ActionSet()
     {
+        playerMove.PaimonNotStar();
         playerMove.PlayerNotTalk();
         playerMove.PaimonNotTalk();
         nPCMove.NingguangNotTalk();
@@ -150,13 +156,4 @@ public class LiyueManager : MonoBehaviour
 public class LiyueAllData
 {
     public TextData[] LiyueText1;
-}
-
-[System.Serializable]
-public class LiyueTextData
-{
-    public int ID;
-    public string name;
-    public string action;
-    public string content;
 }

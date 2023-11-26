@@ -22,6 +22,7 @@ public class CutUI : MonoBehaviour
     public void CutAppear()
     {
         Debug.Log("ÄÆ¾À µîÀå " + cutIndex);
+        ok = false;
         cut.sprite = CutImage[cutIndex];
         cut_anim.SetBool("Start", true);
     }
