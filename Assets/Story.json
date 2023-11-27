@@ -277,7 +277,7 @@
     {
       "ID": "3002",
       "name": "종려",
-      "action": "IsTeaching",
+      "action": "isTeaching",
       "content": "그럼 강의를 시작하겠어."
     },
     {
@@ -375,7 +375,7 @@
     {
       "ID": "4001",
       "name": "라이덴",
-      "action": "isMoving",
+      "action": "Move",
       "content": "여행자, 페이몬. 이나즈마 홍보 공모전 수상을 축하해."
     },
     {
@@ -515,13 +515,13 @@
     {
       "ID": "5001",
       "name": "알하이탐",
-      "action": null,
+      "action": "TeachEnd",
       "content": "수업 끝. 내준 숙제는 다음 수업까지 해오도록."
     },
     {
       "ID": "1002",
       "name": "페이몬",
-      "action": null,
+      "action": "Sad",
       "content": "으으, 어려워… 문제를 풀기는커녕 문법도 이해가 안 돼!"
     },
     {
@@ -533,7 +533,7 @@
     {
       "ID": "1002",
       "name": "페이몬",
-      "action": "Sad",
+      "action": null,
       "content": "뭐어?! 이익…! 열받아!"
     },
     {
@@ -549,7 +549,13 @@
       "content": "여행자! 역시 너뿐이야!"
     }
   ],
-  "SumeruTextExtra": [
+  "SumeruText2": [
+    {
+      "ID": "1001",
+      "name": "여행자",
+      "action": "Sad",
+      "content": "페이몬..."
+    },
     {
       "ID": "1002",
       "name": "페이몬",
@@ -560,7 +566,7 @@
       "ID": "1001",
       "name": "여행자",
       "action": null,
-      "content": "최근 많은 일들을 하긴 했지만# 올바른 방향으로 가고 있는 건지는 모르겠어."
+      "content": "최근 많은 일들을 하긴 했지만, 올바른 방향으로 가고 있는 건지는 모르겠어."
     },
     {
       "ID": "1002",
@@ -587,7 +593,7 @@
       "content": "나히다라면 훌륭한 조언을 해줄 것 같아. 그럼, 한 번 가볼까."
     }
   ],
-  "SumeruText2": [
+  "SumeruText3": [
     {
       "ID": "5002",
       "name": "나히다",
@@ -652,7 +658,7 @@
       "ID": "1001",
       "name": "여행자",
       "action": "NotSad",
-      "content": "덕분에 마음이 한결 가벼워졌어. 고마워# 나히다."
+      "content": "덕분에 마음이 한결 가벼워졌어. 고마워, 나히다."
     },
     {
       "ID": "1002",
@@ -725,8 +731,14 @@
     {
       "ID": "1002",
       "name": "페이몬",
-      "action": "WorkStart",
+      "action": null,
       "content": "좋아. 그럼 일하러 가보자, 여행자!"
+    },
+    {
+      "ID": "1001",
+      "name": "여행자",
+      "action": "Work",
+      "content": ""
     },
     {
       "ID": "1002",

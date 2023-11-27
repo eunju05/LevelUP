@@ -115,6 +115,7 @@ public class LiyueManager2 : MonoBehaviour
             if (_action == "isTeaching")
             {
                 nPCMove.ZhongliTeach();
+                Debug.Log("ต่ม฿");
                 playerMove.PlayerStudy();
             }
 

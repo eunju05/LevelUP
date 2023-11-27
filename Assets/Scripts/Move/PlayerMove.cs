@@ -16,23 +16,21 @@ public class PlayerMove : MonoBehaviour
     public bool isMoving = false;
 
     public bool textmode = true;
-
+    public bool step = false;
     Animator player_anim;
     Animator pai_anim;
+
+    SpriteRenderer player_sprite;
     SpriteRenderer pai_sprite;
     private void Awake()
     {
         player_anim = _player.GetComponent<Animator>();
         pai_anim = _paimon.GetComponent<Animator>();
         pai_sprite = _paimon.GetComponent<SpriteRenderer>();
+        player_sprite = _player.GetComponent<SpriteRenderer>();
     }
 
-    private void Start()
-    {
-            
-    }
-
-    int i = 0;
+    public int i = 0;
     // Update is called once per frame
     void Update()
     {
@@ -41,8 +39,14 @@ public class PlayerMove : MonoBehaviour
             _camera.transform.position = Vector3.MoveTowards(_camera.transform.position, _cameratargetPosition[i].transform.position, Time.deltaTime * speed);
             _player.transform.position = Vector3.MoveTowards(_player.transform.position, _playertargetPosition[i].transform.position, Time.deltaTime * speed);
 
-            if (_player.transform.position == _playertargetPosition[i].transform.position && _camera.transform.position == _cameratargetPosition[i].transform.position)
+            if (_player.transform.position == _playertargetPosition[i].transform.position && _camera.transform.position != _cameratargetPosition[i].transform.position)
             {
+                player_anim.SetBool("isWalking", false);
+                pai_anim.SetBool("isWalking", false);
+            }
+
+            if (_player.transform.position == _playertargetPosition[i].transform.position && _camera.transform.position == _cameratargetPosition[i].transform.position)
+            {              
                 isMoving = false;
                 player_anim.SetBool("isWalking", false);
                 pai_anim.SetBool("isWalking", false);
@@ -50,6 +54,7 @@ public class PlayerMove : MonoBehaviour
                 textmode = true;
             }
         }
+
     }
 
     public void MoveStart()
@@ -65,6 +70,10 @@ public class PlayerMove : MonoBehaviour
         player_anim.SetBool("Sad", true);
     }
 
+    public void PlayerNotSad()
+    {
+        player_anim.SetBool("Sad", false);
+    }
     public void PlayerTalk()
     {
         player_anim.SetBool("isTalking", true);
@@ -85,13 +94,93 @@ public class PlayerMove : MonoBehaviour
         player_anim.SetBool("isStudying", false);
     }
 
+    public void PlayerReceive()
+    {
+        player_anim.SetBool("isReceving", true);
+    }
+
+    public void PlayerNotReceive()
+    {
+        player_anim.SetBool("isReceving", false);
+    }
+
+    public IEnumerator Working(GameObject _stepPosition, GameObject _stepPosition2, GameObject _stepPosition3, float _speed, bool _flip)
+    {     
+        textmode = false;
+        player_anim.SetBool("isWalking", true);
+        pai_anim.SetBool("isWalking", true);
+        while (_player.transform.position != _stepPosition.transform.position)
+        {
+            _player.transform.position = Vector3.MoveTowards(_player.transform.position, _stepPosition.transform.position, Time.deltaTime * _speed);
+            yield return null;
+        }
+
+        player_sprite.flipX = true;
+        pai_sprite.flipX = true;
+        while (_player.transform.position != _stepPosition2.transform.position)
+        {          
+            _player.transform.position = Vector3.MoveTowards(_player.transform.position, _stepPosition2.transform.position, Time.deltaTime * _speed);
+            yield return null;
+        }
+
+        player_sprite.flipX = false;
+        pai_sprite.flipX = false;
+        while (_player.transform.position != _stepPosition.transform.position)
+        {
+            _player.transform.position = Vector3.MoveTowards(_player.transform.position, _stepPosition.transform.position, Time.deltaTime * _speed);
+            yield return null;
+        }
+
+        player_sprite.flipX = true;
+        pai_sprite.flipX = true;
+        while (_player.transform.position != _stepPosition2.transform.position)
+        {
+            _player.transform.position = Vector3.MoveTowards(_player.transform.position, _stepPosition2.transform.position, Time.deltaTime * _speed);
+            yield return null;
+        }
+
+        player_sprite.flipX = false;
+        pai_sprite.flipX = false;
+        while (_player.transform.position != _stepPosition3.transform.position)
+        {
+            _player.transform.position = Vector3.MoveTowards(_player.transform.position, _stepPosition3.transform.position, Time.deltaTime * 2f);
+            yield return null;
+        }
+
+
+        textmode = true;
+        player_anim.SetBool("isWalking", false);
+        pai_anim.SetBool("isWalking", false);
+    }
+
+    public IEnumerator PlayerStep(GameObject _stepPosition, float _speed, bool _flip)
+    {
+        player_sprite.flipX = _flip;
+        pai_sprite.flipX = _flip;
+        textmode = false;
+        player_anim.SetBool("isWalking", true);
+        pai_anim.SetBool("isWalking", true);
+        while (_player.transform.position != _stepPosition.transform.position)
+        {
+            _player.transform.position = Vector3.MoveTowards(_player.transform.position, _stepPosition.transform.position, Time.deltaTime * _speed);
+            yield return null;
+        }
+        textmode = true;
+        player_anim.SetBool("isWalking", false);
+        pai_anim.SetBool("isWalking", false);
+    }
+
     //페이몬
     public void PaimonSad()
     {
         pai_anim.SetBool("Sad", true);        
-        Debug.Log("슬픈 페이몬");
     }
-    
+
+    public void PaimonNotSad()
+    {
+        pai_anim.SetBool("Sad", false);
+    }
+
     public void PaimonFlip(bool _flip)
     {
         pai_sprite.flipX = _flip;
@@ -107,12 +196,6 @@ public class PlayerMove : MonoBehaviour
         pai_anim.SetBool("isTalking", false);
     }
 
-    public void NotSad()
-    {
-        player_anim.SetBool("Sad", false);
-        pai_anim.SetBool("Sad", false);
-
-    }
     public void PaimonStar()
     {
         pai_anim.SetBool("Star", true);
@@ -121,5 +204,12 @@ public class PlayerMove : MonoBehaviour
     public void PaimonNotStar()
     {
         pai_anim.SetBool("Star", false);
+    }
+
+    public void NotSad()
+    {
+        player_anim.SetBool("Sad", false);
+        pai_anim.SetBool("Sad", false);
+
     }
 }

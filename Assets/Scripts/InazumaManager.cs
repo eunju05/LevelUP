@@ -28,9 +28,11 @@ public class InazumaManager : MonoBehaviour
     public TextMeshPro PaimonText;
     public TextMeshPro PaimonText_flip;
 
-    public float speed = 2;
+    public GameObject stepPosition;
+    public float walkspeed;
 
     public bool paimonflip = false;
+    string beforetext;
 
     private void Awake()
     {
@@ -64,11 +66,26 @@ public class InazumaManager : MonoBehaviour
     public void Action(int _ID, string _content, string _action)
     {
         ActionSet();
+        TalkPanelFalse();
+
+        if(_action == "Move")
+        {
+            StartCoroutine(playerMove.PlayerStep(stepPosition, walkspeed, false));
+        }
 
         //여행자
         if (_ID == 1001)
         {
-            TalkPanelFalse();
+            if (_action == "isReceving")
+            {
+                playerMove.PlayerReceive();
+                nPCMove.RaidenAfterPrize();
+            }
+
+            if (_action == "ReceveEnd")
+            {
+                playerMove.PlayerNotReceive();
+            }
             Lumine_TalkPanel.SetActive(true);
             typeEffect.SetMsg(LumineText, _content);
 
@@ -78,7 +95,7 @@ public class InazumaManager : MonoBehaviour
         //페이몬
         else if (_ID == 1002)
         {
-            if (_action == "flip")
+            if (_action == "flip" && beforetext != _content)
             {
                 if (paimonflip == true)
                 {
@@ -90,10 +107,10 @@ public class InazumaManager : MonoBehaviour
                 }
                 playerMove.PaimonFlip(paimonflip);
             }
+
             //여행자 안보고 있을 때
             if (paimonflip == false)
             {
-                TalkPanelFalse();
                 Paimon_TalkPanel.SetActive(true);
                 typeEffect.SetMsg(PaimonText, _content);
             }
@@ -101,7 +118,6 @@ public class InazumaManager : MonoBehaviour
             //여행자 보고 있을 때
             else
             {
-                TalkPanelFalse();
                 Paimon_TalkPanel_flip.SetActive(true);
                 typeEffect.SetMsg(PaimonText_flip, _content);
             }
@@ -111,19 +127,16 @@ public class InazumaManager : MonoBehaviour
         //라이덴
         else if (_ID == 4001)
         {
-            if(_action == "isGiving")
+            if (_action == "isGiving")
             {
                 nPCMove.RaidenPrize();
             }
-
-            if(_action == "")
-            TalkPanelFalse();
             Raiden_TalkPanel.SetActive(true);
             typeEffect.SetMsg(RaidenText, _content);
 
             nPCMove.RaidenTalk();
         }
-
+        beforetext = _content;
         print(_ID);
         print(_content);
     }
@@ -165,7 +178,7 @@ public class InazumaManager : MonoBehaviour
     {
         playerMove.PlayerNotTalk();
         playerMove.PaimonNotTalk();
-        nPCMove.ZhongliNotTalk();
+        nPCMove.RaidenNotTalk();
     }
 }
 
