@@ -50,7 +50,7 @@ public class LiyueManager2 : MonoBehaviour
     {
         if (playerMove.isMoving == true)
         {
-            LiyueUI.transform.position = Vector3.MoveTowards(LiyueUI.transform.position, UImove.transform.position, Time.deltaTime * speed);
+            LiyueUI.transform.position = Vector3.MoveTowards(LiyueUI.transform.position, UImove.transform.position, Time.deltaTime * playerMove.speed);
         }
 
         if (playerMove.textmode == true && cutUI.ok == true)

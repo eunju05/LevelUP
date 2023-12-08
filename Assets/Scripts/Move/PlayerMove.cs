@@ -121,23 +121,7 @@ public class PlayerMove : MonoBehaviour
         {          
             _player.transform.position = Vector3.MoveTowards(_player.transform.position, _stepPosition2.transform.position, Time.deltaTime * _speed);
             yield return null;
-        }
-
-        player_sprite.flipX = false;
-        pai_sprite.flipX = false;
-        while (_player.transform.position != _stepPosition.transform.position)
-        {
-            _player.transform.position = Vector3.MoveTowards(_player.transform.position, _stepPosition.transform.position, Time.deltaTime * _speed);
-            yield return null;
-        }
-
-        player_sprite.flipX = true;
-        pai_sprite.flipX = true;
-        while (_player.transform.position != _stepPosition2.transform.position)
-        {
-            _player.transform.position = Vector3.MoveTowards(_player.transform.position, _stepPosition2.transform.position, Time.deltaTime * _speed);
-            yield return null;
-        }
+        }       
 
         player_sprite.flipX = false;
         pai_sprite.flipX = false;

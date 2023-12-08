@@ -47,10 +47,7 @@ public class SumeruManager2 : MonoBehaviour
     {
         if (playerMove.isMoving == true)
         {
-            while (SumeruUI.transform.position != UImove.transform.position)
-            {
-                SumeruUI.transform.position = Vector3.MoveTowards(SumeruUI.transform.position, UImove.transform.position, Time.deltaTime * playerMove.speed);
-            }
+            SumeruUI.transform.position = Vector3.MoveTowards(SumeruUI.transform.position, UImove.transform.position, Time.deltaTime * playerMove.speed);
         }
 
         if (playerMove.textmode == true)

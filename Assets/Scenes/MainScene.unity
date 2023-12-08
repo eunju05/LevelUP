@@ -2272,7 +2272,7 @@ MonoBehaviour:
   - {fileID: 241082252}
   - {fileID: 953898475}
   - {fileID: 1658650124}
-  speed: 2
+  speed: 3.5
   isMoving: 0
   textmode: 1
   step: 0
@@ -2780,7 +2780,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1146639297}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &320311797
 SpriteRenderer:
@@ -3753,7 +3753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Venti: {fileID: 813247216}
   _VentitargetPosition: {fileID: 1925915378}
-  speed: 2
+  speed: 3
   isMoving: 0
   textmode: 1
 --- !u!1 &490740980
@@ -5577,7 +5577,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1146639297}
+    m_TransformParent: {fileID: 986327058}
     m_Modifications:
     - target: {fileID: -8904140475197111382, guid: 4fcafe6d35620094da1312b1c40c1a06, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5625,31 +5625,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 4fcafe6d35620094da1312b1c40c1a06, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 4fcafe6d35620094da1312b1c40c1a06, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.926
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 4fcafe6d35620094da1312b1c40c1a06, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.926
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 4fcafe6d35620094da1312b1c40c1a06, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.926
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 4fcafe6d35620094da1312b1c40c1a06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.6
+      value: 33.096153
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 4fcafe6d35620094da1312b1c40c1a06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0699999
+      value: 3.3134112
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 4fcafe6d35620094da1312b1c40c1a06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.09846767
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 4fcafe6d35620094da1312b1c40c1a06, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10084,6 +10084,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 619770722}
   - {fileID: 1146639297}
   - {fileID: 1853953957}
   - {fileID: 2132054999}
@@ -10777,11 +10778,10 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 409476758}
-  - {fileID: 619770722}
   - {fileID: 320311796}
   - {fileID: 1489387105}
   m_Father: {fileID: 986327058}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1146639298
 SpriteRenderer:
@@ -11824,7 +11824,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1146639297}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1489387106
 SpriteRenderer:
@@ -14225,7 +14225,7 @@ Transform:
   - {fileID: 241082253}
   - {fileID: 182241616}
   m_Father: {fileID: 986327058}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1853953958
 SpriteRenderer:
@@ -14558,7 +14558,7 @@ Transform:
   m_Children:
   - {fileID: 2083680454}
   m_Father: {fileID: 986327058}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1895645472
 Animator:
@@ -15901,7 +15901,7 @@ Transform:
   m_Children:
   - {fileID: 1794476446}
   m_Father: {fileID: 986327058}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2132055000
 Animator:

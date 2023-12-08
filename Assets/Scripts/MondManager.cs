@@ -115,22 +115,25 @@ public class MondManager : MonoBehaviour
         //º¥Æ¼
         else if (_ID == 2001)
         {
+            Paimon_TalkPanel.SetActive(false);
+            Paimon_TalkPanel_flip.SetActive(false);
+            Lumine_TalkPanel.SetActive(false);
             if (_action == "isWalking")
             {
                 ventiMove.VentiAppear();
-                if(ventiMove.textmode == true)
+                if (ventiMove.isMoving == true)
                 {
                     Venti_TalkPanel.SetActive(true);
                     typeEffect.SetMsg(VentiText, _content);
                     return;
                 }
             }
-            Paimon_TalkPanel.SetActive(false);
-            Paimon_TalkPanel_flip.SetActive(false);
-            Lumine_TalkPanel.SetActive(false);
-            Venti_TalkPanel.SetActive(true);
-            typeEffect.SetMsg(VentiText, _content);
+            else
+            {
+                Venti_TalkPanel.SetActive(true);
+                typeEffect.SetMsg(VentiText, _content);
 
+            }
             ventiMove.VentiTalk();
         }
 
